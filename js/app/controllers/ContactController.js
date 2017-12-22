@@ -1,29 +1,28 @@
-function Counter() {
-  return {
-    template: [
-      '<div>',
-        '<h3>Counter</h3>',
-        '<div>Click anywhere to increment the counter!</div>',
-        '<div>Current count: {{ count }}</div>',
-      '</div>'
-      ].join(''),
-      controller: function ($scope) {
-        $scope.count = 0
- }
-    },
-    link: function (scope, element) {
-        element.on('click', function () {
-           scope.count++
-           scope.$apply()
-        })
+function ContactController() {
+    this.tempContact = {}
 
-        scope.$on('$destroy', function () {
-           element.off()
-        })
+      this.contacts = [{
+          name: 'Bob',
+          phone: '0123458690'
+     },{
+         name: 'Tim',
+         phone: '3934203242'
+     },{
+         name: 'Ross',
+          phone: '0684059433'
+      }]
+  
+    this.reset = function() {
+      this.tempContact = {}
     }
-  }
+
+      this.addContact = function () {
+         })
+        this.contacts.push(this.tempContact)
+        this.reset()
+      }
   }
   
-angular
-  .module('app')
-  .directive('counter', Counter)
+ angular
+     .module('app')
+     .controller('ContactController', ContactController)
